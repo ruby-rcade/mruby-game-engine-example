@@ -143,8 +143,12 @@ void begin_run_loop(void)
     // Create white background
     SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xFF));
     
+    // Draw black square
+    SDL_Rect rect = {x, y, 100, 100};
+    SDL_FillRect(screenSurface, &rect, SDL_MapRGB(screenSurface->format, 0x00, 0x00, 0x00));
+  
     // Call render() defined in game.rb
-    mrb_load_string(mrb, "render()"); // FIXME: This line is causing errors
+    // mrb_load_string(mrb, "render()"); // FIXME: This line is causing errors
   
     SDL_UpdateWindowSurface(window);
   }
