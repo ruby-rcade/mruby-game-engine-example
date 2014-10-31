@@ -1,15 +1,26 @@
 @x = 100
 @y = 100
 
-def input_received(input)
-  # puts "Called input_received method with input: #{input.inspect}"
+def on_key_press(input)
+  puts "Called on_key_press method with input: #{input.inspect}"
   case input
-  when :left  then @x -= 1
-  when :right then @x += 1
-  when :up    then @y -= 1
-  when :down  then @y += 1
+  when :left,  'Left'  then @x -= 10
+  when :right, 'Right' then @x += 10
+  when :up,    'Up'    then @y -= 10
+  when :down,  'Down'  then @y += 10
   end
   puts "Current x/y: #{@x}, #{@y}"
+end
+
+def while_key_down(input)
+  # puts "Called while_key_down method with input: #{input.inspect}"
+  case input
+  when :left,  'Left'  then @x -= 10
+  when :right, 'Right' then @x += 10
+  when :up,    'Up'    then @y -= 10
+  when :down,  'Down'  then @y += 10
+  end
+  # puts "Current x/y: #{@x}, #{@y}"
 end
 
 def render
