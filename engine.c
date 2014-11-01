@@ -64,7 +64,9 @@ void update() {
   // printf("loop_ms: %i\n", window->loop_ms);
   // printf("delay_ms: %i\n", window->delay_ms);
   // printf("fps: %f\n", window->fps);
+}
 
+void render() {
   // Call the render() method defined in game.rb
   mrb_load_string(mrb, "render()");
 }
@@ -77,7 +79,7 @@ int main(int argc, char const *argv[]) {
   // Read game.rb file
   load_game_script();
   
-  window = S2D_CreateWindow("Example mruby Game Engine", 800, 600, 60, true, update, on_key, key_down);
+  window = S2D_CreateWindow("Example mruby Game Engine", 800, 600, 60, true, update, render, on_key, key_down);
   S2D_Show(window);
   return 0;
 }
